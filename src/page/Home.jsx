@@ -1,5 +1,5 @@
-import Header from '../elements/Header.elements'
-import Hero from '../elements/Hero.info'
+import Header from '../elements/Header'
+import Hero from '../elements/Home'
 function Home() {
 
     return (
