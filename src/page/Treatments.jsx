@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import '../styles/06-treatments.css';
-import Header from '../elements/Header';
 const TREATMENTS_DATA = [
     {
         id: 'limpieza',
@@ -35,7 +34,7 @@ const TREATMENTS_DATA = [
 export default function Treatments() {
     const [selectedTreatments, setSelectedTreatments] = useState([]);
 
-    const WHATSAPP_NUMBER = '51999888777'; // Reemplazar con tu número real
+    const WHATSAPP_NUMBER = '51926430324'; // Reemplazar con tu número real
 
     const toggleTreatment = (id) => {
         if (selectedTreatments.includes(id)) {
