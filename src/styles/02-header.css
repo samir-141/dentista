@@ -1,0 +1,197 @@
+/* ========================================
+   HEADER - Minimalista, Limpio y Fluido
+   ======================================== */
+
+.header {
+    height: var(--header-height, 70px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-8, 2rem);
+    background: var(--color-white, #ffffff);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* ---------- LOGO ---------- */
+.nombre {
+    font-size: var(--font-size-xl, 1.25rem);
+    font-weight: 700;
+    color: var(--color-primary, #0070f3);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    z-index: 110;
+}
+
+/* ---------- NAVEGACIÓN DESKTOP ---------- */
+.nav-container ul {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8, 2rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-container ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--color-gray-600, #666666);
+    font-size: var(--font-size-sm, 0.9rem);
+    transition: color 0.2s ease;
+    position: relative;
+    padding: var(--spacing-2, 0.5rem) 0;
+}
+
+/* Indicador activo minimalista (Línea inferior sutil) */
+.nav-container ul li.active a,
+.nav-container ul li a:hover {
+    color: var(--color-primary, #0070f3);
+}
+
+.nav-container ul li.active a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary, #0070f3);
+    border-radius: 2px;
+}
+
+/* ---------- BOTÓN HAMBURGUESA (Pura Estructura CSS) ---------- */
+.hamburger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 110;
+}
+
+/* Línea central */
+.hamburger-box {
+    position: relative;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-gray-700, #333);
+    transition: background-color 0.2s ease;
+}
+
+/* Líneas superior e inferior usando pseudo-elementos */
+.hamburger-box::before,
+.hamburger-box::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-gray-700, #333);
+    transition: transform 0.25s ease, top 0.25s ease;
+}
+
+.hamburger-box::before {
+    top: -6px;
+}
+
+.hamburger-box::after {
+    top: 6px;
+}
+
+/* Animación a 'X' cuando está activo */
+.hamburger.active .hamburger-box {
+    background-color: transparent;
+}
+
+.hamburger.active .hamburger-box::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.hamburger.active .hamburger-box::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* ========================================
+   RESPONSIVE (Breakpoints Estáticos fijados)
+   ======================================== */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 992px) {
+    .header {
+        padding: 0 var(--spacing-6, 1.5rem);
+    }
+
+    .nav-container ul {
+        gap: var(--spacing-5, 1.25rem);
+    }
+}
+
+/* Dispositivos Móviles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    /* Transformación de la navegación en un menú superpuesto limpio */
+    .nav-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--color-white, #ffffff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-100%);
+        /* Desplazamiento vertical más natural */
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 100;
+    }
+
+    .nav-container.open {
+        transform: translateY(0);
+    }
+
+    .nav-container ul {
+        flex-direction: column;
+        gap: var(--spacing-6, 1.5rem);
+        text-align: center;
+    }
+
+    .nav-container ul li a {
+        font-size: var(--font-size-xl, 1.5rem);
+        font-weight: 600;
+        display: block;
+    }
+
+    .nav-container ul li.active a::after {
+        left: 25%;
+        width: 50%;
+        /* Línea de activo centrada y más corta en móvil */
+    }
+}
+
+/* Pantallas extremadamente pequeñas */
+@media (max-width: 480px) {
+    .header {
+        height: var(--header-height-mobile, 60px);
+        padding: 0 var(--spacing-4, 1rem);
+    }
+
+    .nombre {
+        font-size: var(--font-size-lg, 1.1rem);
+    }
+}
