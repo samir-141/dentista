@@ -3,6 +3,12 @@
    ======================================== */
 
 /* ---------- COLORES PRINCIPALES ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root {
     /* Colores de marca (cambia aquí según tu logo) */
     --color-primary: #0b7dda;
