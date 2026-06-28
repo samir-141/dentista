@@ -1,0 +1,234 @@
+/* ========================================
+   SECCIÓN TRATAMIENTOS - Estilo Zen / Clínico
+   ======================================== */
+
+.treatments-section {
+    max-width: var(--container-max-width, 1200px);
+    margin: 0 auto;
+    padding: var(--spacing-20, 5rem) var(--container-padding, 1.5rem);
+    background-color: var(--color-white, #ffffff);
+}
+
+.treatments-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-12, 3rem) auto;
+}
+
+.treatments-header h2 {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-3xl, 2.5rem);
+    color: var(--color-secondary, #2c3e50);
+    font-weight: var(--font-weight-bold, 700);
+    margin-bottom: var(--spacing-3, 0.75rem);
+    letter-spacing: -0.5px;
+}
+
+.treatments-header p {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base, 1rem);
+    color: var(--color-gray-600, #6c757d);
+    line-height: 1.5;
+}
+
+/* ---------- GRID DE TARJETAS ---------- */
+.treatments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-6, 1.5rem);
+    margin-bottom: var(--spacing-16, 4rem);
+}
+
+.treatment-card {
+    background: var(--color-white, #ffffff);
+    border: 1px solid var(--color-gray-200, #e9ecef);
+    border-radius: var(--border-radius-lg, 12px);
+    padding: var(--spacing-6, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+    user-select: none;
+}
+
+.treatment-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-gray-300, #dee2e6);
+    box-shadow: var(--box-shadow-md);
+}
+
+/* Estado de tarjeta seleccionada */
+.treatment-card.selected {
+    border-color: var(--color-primary, #0b7dda);
+    background-color: var(--color-primary-light, #e6f2fc);
+}
+
+/* ---------- ELEMENTOS INTERNOS DE LA TARJETA ---------- */
+.card-checkbox {
+    position: absolute;
+    top: var(--spacing-5, 1.25rem);
+    right: var(--spacing-5, 1.25rem);
+}
+
+.checkbox-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-gray-300, #dee2e6);
+    border-radius: var(--border-radius-full, 9999px);
+    background: var(--color-white, #ffffff);
+    position: relative;
+    transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.treatment-card.selected .checkbox-icon {
+    border-color: var(--color-primary, #0b7dda);
+    background: var(--color-primary, #0b7dda);
+}
+
+.treatment-card.selected .checkbox-icon::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 6px;
+    width: 5px;
+    height: 9px;
+    border: solid var(--color-white, #fff);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.treatment-title {
+    font-size: var(--font-size-lg, 1.25rem);
+    color: var(--color-secondary, #2c3e50);
+    font-weight: var(--font-weight-semibold, 600);
+    margin-bottom: var(--spacing-3, 0.75rem);
+    padding-right: var(--spacing-8);
+    /* Espacio para el checkbox */
+}
+
+.treatment-description {
+    font-size: var(--font-size-sm, 0.875rem);
+    color: var(--color-gray-600, #6c757d);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-4, 1rem);
+}
+
+.treatment-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-5, 1.25rem) 0;
+}
+
+.treatment-benefits li {
+    font-size: var(--font-size-xs, 0.75rem);
+    color: var(--color-secondary-light, #4a6a8a);
+    margin-bottom: var(--spacing-1, 0.25rem);
+    font-weight: var(--font-weight-medium);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-gray-200, #e9ecef);
+    padding-top: var(--spacing-4, 1rem);
+    margin-top: auto;
+}
+
+.treatment-card.selected .card-footer {
+    border-top-color: var(--color-gray-300);
+}
+
+.treatment-price {
+    font-size: var(--font-size-base, 1rem);
+    font-weight: var(--font-weight-bold, 700);
+    color: var(--color-secondary, #2c3e50);
+}
+
+.selection-text {
+    font-size: var(--font-size-xs, 0.75rem);
+    color: var(--color-gray-500, #adb5bd);
+    transition: color var(--transition-fast);
+}
+
+.treatment-card.selected .selection-text {
+    color: var(--color-primary, #0b7dda);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* ---------- BARRA DE ACCIÓN FLOTANTE ---------- */
+.action-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-secondary-dark, #1a252f);
+    color: var(--color-white, #ffffff);
+    padding: var(--spacing-4, 1rem) 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(100%);
+    transition: transform var(--transition-slow);
+    z-index: var(--z-index-sticky, 1020);
+}
+
+.action-bar.visible {
+    transform: translateY(0);
+}
+
+.action-bar-content {
+    max-width: var(--container-max-width, 1200px);
+    margin: 0 auto;
+    padding: 0 var(--container-padding, 1.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-bar-content p {
+    font-size: var(--font-size-base, 1rem);
+}
+
+.btn-send-whatsapp {
+    background-color: var(--color-success, #27ae60);
+    color: white;
+    border: none;
+    padding: var(--spacing-3, 0.75rem) var(--spacing-6, 1.5rem);
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: var(--font-weight-semibold, 600);
+    border-radius: var(--border-radius-md, 8px);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-send-whatsapp:hover {
+    background-color: #219653;
+    /* Variación sutil de éxito */
+    transform: translateY(-1px);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN (Breakpoints)
+   ======================================== */
+
+@media (max-width: 768px) {
+    .treatments-section {
+        padding: var(--spacing-12, 3rem) var(--container-padding-mobile, 1rem);
+    }
+
+    .treatments-header h2 {
+        font-size: var(--font-size-2xl, 2rem);
+    }
+
+    .action-bar-content {
+        flex-direction: column;
+        gap: var(--spacing-3, 0.75rem);
+        text-align: center;
+    }
+
+    .btn-send-whatsapp {
+        width: 100%;
+    }
+}

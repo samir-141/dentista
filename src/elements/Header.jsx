@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom' // ← Importamos NavLink para manejo de rutas activas
 import '../styles/01-variables.css'
 import '../styles/02-header.css'
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
-    const [activeSection, setActiveSection] = useState('inicio')
 
-    // Detectar scroll para sombra del header
+    // Detectar scroll solo para añadir la sombra estética al Header
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 10)
@@ -16,49 +16,46 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    // Cerrar menú al hacer clic en un enlace
-    const handleNavClick = (section) => {
-        setActiveSection(section)
-        setMenuOpen(false)
-    }
-
-    // Bloquear scroll cuando el menú está abierto
+    // Bloquear scroll cuando el menú móvil está abierto
     useEffect(() => {
         document.body.style.overflow = menuOpen ? 'hidden' : ''
         return () => { document.body.style.overflow = '' }
     }, [menuOpen])
 
+    // Estructura de navegación orientada a URLs
     const navItems = [
-        { id: 'inicio', label: 'Inicio' },
-        { id: 'tratamientos', label: 'Tratamientos' },
-        { id: 'sobre-mi', label: 'Sobre mí' },
-        { id: 'contacto', label: 'Contacto' }
+        { path: '/', label: 'Inicio' },
+        { path: '/tratamientos', label: 'Tratamientos' },
+        { path: '/sobre-mi', label: 'Sobre mí' },
+        { path: '/contacto', label: 'Contacto' }
     ]
 
     return (
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
 
-            {/* Logo */}
-            <a href="#inicio" className="nombre" onClick={() => handleNavClick('inicio')}>
+            {/* Logo - Te redirige a la raíz de la web */}
+            <NavLink to="/" className="nombre" onClick={() => setMenuOpen(false)}>
                 <span>EDU DENTAL</span>
-            </a>
+            </NavLink>
 
             {/* Navegación principal */}
             <nav className={`nav-container ${menuOpen ? 'open' : ''}`}>
                 <ul>
                     {navItems.map((item) => (
-                        <li
-                            key={item.id}
-                            className={activeSection === item.id ? 'active' : ''}
-                            onClick={() => handleNavClick(item.id)}
-                        >
-                            <a href={`#${item.id}`}>{item.label}</a>
+                        <li key={item.path} onClick={() => setMenuOpen(false)}>
+                            {/* NavLink añade automáticamente la clase .active si estás en esa ruta */}
+                            <NavLink
+                                to={item.path}
+                                className={({ isActive }) => isActive ? 'active' : ''}
+                            >
+                                {item.label}
+                            </NavLink>
                         </li>
                     ))}
                 </ul>
             </nav>
 
-            {/* Botón Hamburguesa Simplificado */}
+            {/* Hamburguesa */}
             <button
                 className={`hamburger ${menuOpen ? 'active' : ''}`}
                 onClick={() => setMenuOpen(!menuOpen)}
