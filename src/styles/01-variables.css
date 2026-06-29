@@ -1,185 +1,168 @@
 /* ========================================
-   LIBRERÍA DE VARIABLES CSS
-   ======================================== */
+   RESET GLOBAL
+======================================== */
 
-/* ---------- COLORES PRINCIPALES ---------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    /* Colores de marca (cambia aquí según tu logo) */
-    --color-primary: #0b7dda;
-    --color-primary-dark: #095da8;
-    --color-primary-light: #e6f2fc;
-    --color-primary-rgb: 11, 125, 218;
-
-    /* Colores secundarios */
-    --color-secondary: #2c3e50;
-    --color-secondary-dark: #1a252f;
-    --color-secondary-light: #4a6a8a;
-
-    /* Colores de acento */
-    --color-accent: #f39c12;
-    --color-accent-dark: #d68910;
-    --color-accent-light: #fdebd0;
-
-    /* Colores de éxito/error */
-    --color-success: #27ae60;
-    --color-error: #e74c3c;
-    --color-warning: #f1c40f;
-    --color-info: #3498db;
-
-    /* Escala de grises */
-    --color-white: #ffffff;
-    --color-gray-50: #f8f9fa;
-    --color-gray-100: #f1f3f5;
-    --color-gray-200: #e9ecef;
-    --color-gray-300: #dee2e6;
-    --color-gray-400: #ced4da;
-    --color-gray-500: #adb5bd;
-    --color-gray-600: #6c757d;
-    --color-gray-700: #495057;
-    --color-gray-800: #343a40;
-    --color-gray-900: #212529;
-    --color-black: #000000;
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
 }
 
-/* ---------- TIPOGRAFÍA ---------- */
-:root {
-    --font-family-primary: 'Arial', 'Helvetica', sans-serif;
-    --font-family-secondary: 'Georgia', 'Times New Roman', serif;
-    --font-family-mono: 'Courier New', monospace;
-
-    --font-weight-thin: 100;
-    --font-weight-light: 300;
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --font-weight-extrabold: 800;
-    --font-weight-black: 900;
-
-    --font-size-xs: 0.75rem;
-    /* 12px */
-    --font-size-sm: 0.875rem;
-    /* 14px */
-    --font-size-base: 1rem;
-    /* 16px */
-    --font-size-md: 1.125rem;
-    /* 18px */
-    --font-size-lg: 1.25rem;
-    /* 20px */
-    --font-size-xl: 1.5rem;
-    /* 24px */
-    --font-size-2xl: 2rem;
-    /* 32px */
-    --font-size-3xl: 2.5rem;
-    /* 40px */
-    --font-size-4xl: 3rem;
-    /* 48px */
-    --font-size-5xl: 3.5rem;
-    /* 56px */
+body {
+    font-family: var(--font-family);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: var(--transition);
 }
 
-/* ---------- ESPACIADOS ---------- */
+
+/* ========================================
+   TEMA CLARO
+======================================== */
+
 :root {
-    --spacing-1: 0.25rem;
-    /* 4px */
-    --spacing-2: 0.5rem;
-    /* 8px */
-    --spacing-3: 0.75rem;
-    /* 12px */
-    --spacing-4: 1rem;
-    /* 16px */
-    --spacing-5: 1.25rem;
-    /* 20px */
-    --spacing-6: 1.5rem;
-    /* 24px */
-    --spacing-8: 2rem;
-    /* 32px */
-    --spacing-10: 2.5rem;
-    /* 40px */
-    --spacing-12: 3rem;
-    /* 48px */
-    --spacing-16: 4rem;
-    /* 64px */
-    --spacing-20: 5rem;
-    /* 80px */
-    --spacing-24: 6rem;
-    /* 96px */
-    --spacing-32: 8rem;
-    /* 128px */
+
+    /* ===== BRAND ===== */
+
+    --primary: #0b7dda;
+    --primary-hover: #095da8;
+    --primary-soft: #e6f2fc;
+
+
+    /* ===== BACKGROUNDS ===== */
+
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-card: #ffffff;
+
+
+    /* ===== TEXT ===== */
+
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --text-inverse: #ffffff;
+
+
+    /* ===== BORDER ===== */
+
+    --border-color: #dee2e6;
+
+
+    /* ===== STATUS ===== */
+
+    --success: #27ae60;
+    --danger: #e74c3c;
+    --warning: #f1c40f;
+    --info: #3498db;
+
+
+
+    /* ===== SHADOW ===== */
+
+    --shadow-sm:
+        0 1px 3px rgba(0, 0, 0, .1);
+
+    --shadow-md:
+        0 4px 10px rgba(0, 0, 0, .12);
+
+    --shadow-lg:
+        0 10px 25px rgba(0, 0, 0, .15);
+
+
+
+    /* ===== RADIUS ===== */
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-full: 999px;
+
+
+
+    /* ===== TYPOGRAPHY ===== */
+
+    --font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+
+    --fs-sm: .875rem;
+    --fs-md: 1rem;
+    --fs-lg: 1.25rem;
+    --fs-xl: 2rem;
+    --fs-xxl: 3rem;
+
+
+
+    /* ===== SPACING ===== */
+
+    --space-1: .25rem;
+    --space-2: .5rem;
+    --space-3: .75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+
+
+
+    /* ===== TRANSITIONS ===== */
+
+    --transition:
+        .25s ease;
+
+
+    /* ===== LAYOUT ===== */
+
+    --container:
+        1200px;
+
 }
 
-/* ---------- LAYOUT ---------- */
-:root {
-    --header-height: 70px;
-    --header-height-mobile: 60px;
-    --hero-height: 600px;
-    --hero-height-mobile: 450px;
-    --container-max-width: 1200px;
-    --container-padding: 1.5rem;
-    --container-padding-mobile: 1rem;
 
-    --z-index-dropdown: 1000;
-    --z-index-sticky: 1020;
-    --z-index-fixed: 1030;
-    --z-index-modal: 1040;
-    --z-index-popover: 1050;
-    --z-index-tooltip: 1060;
-}
+/* ========================================
+   TEMA OSCURO
+======================================== */
 
-/* ---------- BORDES Y SOMBRAS ---------- */
-:root {
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 12px;
-    --border-radius-xl: 16px;
-    --border-radius-2xl: 24px;
-    --border-radius-full: 9999px;
 
-    --box-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --box-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --box-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-    --box-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
-    --box-shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
-
-    --transition-fast: 150ms ease;
-    --transition-base: 250ms ease;
-    --transition-slow: 350ms ease;
-    --transition-slower: 500ms ease;
-}
-
-/* ---------- BREAKPOINTS ---------- */
-:root {
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --breakpoint-xxl: 1400px;
-}
-
-/* ---------- TEMA OSCURO (Opcional) ---------- */
 [data-theme="dark"] {
-    --color-primary: #3b9eff;
-    --color-primary-dark: #1a7fd6;
-    --color-primary-light: #1a2a3a;
 
-    --color-secondary: #e1e8f0;
-    --color-gray-50: #1a1a1a;
-    --color-gray-100: #2d2d2d;
-    --color-gray-200: #404040;
-    --color-gray-300: #555555;
-    --color-gray-400: #6b6b6b;
-    --color-gray-500: #888888;
-    --color-gray-600: #aaaaaa;
-    --color-gray-700: #cccccc;
-    --color-gray-800: #e0e0e0;
-    --color-gray-900: #f0f0f0;
-    --color-white: #121212;
-    --color-black: #ffffff;
+
+    --primary: #3b9eff;
+    --primary-hover: #6bb5ff;
+    --primary-soft: #13263a;
+
+
+
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-card: #242424;
+
+
+
+    --text-primary: #f5f5f5;
+    --text-secondary: #b5b5b5;
+    --text-inverse: #121212;
+
+
+
+    --border-color: #333;
+
+
+
+    --shadow-sm:
+        0 1px 3px rgba(0, 0, 0, .4);
+
+    --shadow-md:
+        0 4px 10px rgba(0, 0, 0, .5);
+
+    --shadow-lg:
+        0 10px 25px rgba(0, 0, 0, .6);
+
 }

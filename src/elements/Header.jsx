@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom' // ← Importamos NavLink para manejo de rutas activas
 import '../styles/01-variables.css'
 import '../styles/02-header.css'
-
+import logo from '../assets/logo.png'
+import ThemeButton from './Pagecolor'
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
@@ -34,8 +35,16 @@ export default function Header() {
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
 
             {/* Logo - Te redirige a la raíz de la web */}
-            <NavLink to="/" className="nombre" onClick={() => setMenuOpen(false)}>
-                <span>EDU DENTAL</span>
+            <NavLink
+                to="/"
+                className="logo-link"
+                onClick={() => setMenuOpen(false)}
+            >
+                <img
+                    src={logo}
+                    alt="Edu Dental - Inicio"
+                    className="logo-img"
+                />
             </NavLink>
 
             {/* Navegación principal */}
@@ -54,6 +63,9 @@ export default function Header() {
                     ))}
                 </ul>
             </nav>
+
+            {/* Tema */}
+            <ThemeButton />
 
             {/* Hamburguesa */}
             <button

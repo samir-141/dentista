@@ -7,8 +7,8 @@ import Header from './elements/Header';
 import Home from './page/Home';
 import Treatments from './page/Treatments';
 // Tu componente de tratamientos como página
-// import AboutMePage from './page/AboutMePage';
-// import ContactPage from './page/ContactPage';
+import AboutMePage from './page/AboutMePage';
+import ContactPage from './page/ContactPage';
 
 function App() {
   return (
@@ -22,9 +22,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tratamientos" element={<Treatments />} />
-            {/* <Route path="/sobre-mi" element={<AboutMePage />} />
-            <Route path="/contacto" element={<ContactPage />} /> 
-            */}
+            <Route path="/sobre-mi" element={<AboutMePage />} />
+            <Route path="/contacto" element={<ContactPage />} />
+
           </Routes>
         </main>
       </div>

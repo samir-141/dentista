@@ -1,6 +1,39 @@
 /* ========================================
    HEADER - Minimalista, Limpio y Fluido
    ======================================== */
+/* ---------- LOGO OPTIMIZADO ---------- */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    z-index: 110;
+    height: 100%;
+    padding: var(--spacing-1, 0.25rem) 0;
+}
+
+.logo-img {
+    height: 100%;
+    /* Se adapta automáticamente a la altura disponible de tu --header-height */
+    max-height: 45px;
+    /* Evita que logos muy grandes deformen el header */
+    width: auto;
+    /* Mantiene la proporción perfecta del logo sin distorsionarlo */
+    object-fit: contain;
+    transition: transform var(--transition-fast, 150ms ease);
+}
+
+/* Efecto interactivo sutil y elegante al pasar el cursor */
+.logo-link:hover .logo-img {
+    transform: scale(1.02);
+}
+
+/* Ajuste para pantallas móviles pequeñas */
+@media (max-width: 480px) {
+    .logo-img {
+        max-height: 38px;
+        /* Un tamaño un poco más discreto en teléfonos */
+    }
+}
 
 .header {
     height: var(--header-height, 70px);
